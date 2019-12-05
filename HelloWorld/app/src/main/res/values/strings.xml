@@ -1,3 +1,8 @@
 <resources>
-    <string name="app_name">HelloWorld</string>
+    <string name="app_name">홍길동</string>
+    <string name="loginbtn">로그인</string>
+    <string name="regist">회원가입</string>
+    <string name="id">ID</string>
+    <string name="pwd">PASSWORD</string>
+
 </resources>
