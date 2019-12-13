@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="30ff76e0-affc-47cf-bfb2-8d70426d580b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../FileIO01/app/src/main/java/com/example/fileio01/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../FileIO01/app/src/main/java/com/example/fileio01/MainActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FileIO01/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../FileIO01/app/src/main/res/layout/activity_main.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Jsoup01/app/src/main/java/com/cookandroid/jsoup01/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Jsoup01/app/src/main/java/com/cookandroid/jsoup01/MainActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Jsoup01/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Jsoup01/app/src/main/res/layout/activity_main.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -44,13 +43,13 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="ProjectPane" />
       <pane id="PackagesPane" />
+      <pane id="ProjectPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Sample012" />
     <property name="settings.editor.selected.configurable" value="AndroidSdkUpdater" />
   </component>
   <component name="RunDashboard">
@@ -82,7 +81,7 @@
     <frame x="273" y="29" width="1470" height="1036" extended-state="0" />
     <layout>
       <window_info id="Captures" order="0" weight="0.25" />
-      <window_info id="Project" order="1" visible="true" weight="0.33971632" />
+      <window_info id="Project" order="1" visible="true" weight="0.34468085" />
       <window_info id="Structure" order="2" side_tool="true" />
       <window_info id="Image Layers" order="3" />
       <window_info id="Designer" order="4" />

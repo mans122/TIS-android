@@ -45,20 +45,15 @@ public class index extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 db = dbManager.getReadableDatabase();
+                Log.d("title",((ListViewItem)adapter.getItem(position)).getTitle());
                 cursor = db.rawQuery("select * from Diary where Title='"+((ListViewItem)adapter.getItem(position)).getTitle()+"'",null);
                 Intent intent = new Intent(getApplicationContext(),Detail.class);
-//                Log.d("Title",cursor.getString(0));
-//                Log.d("Date",cursor.getString(1));
-//                Log.d("Weather",cursor.getString(2));
-//                Log.d("Content",cursor.getString(3));
+                cursor.moveToNext();
                 intent.putExtra("Title",cursor.getString(0));
                 intent.putExtra("Date",cursor.getString(1));
                 intent.putExtra("Weather",cursor.getString(2));
                 intent.putExtra("Content",cursor.getString(3));
-//                intent.putExtra("Title",((ListViewItem)adapter.getItem(position)).getContent());
-//                intent.putExtra("Date",((ListViewItem)adapter.getItem(position)).getDate());
-//                intent.putExtra("Weather",((ListViewItem)adapter.getItem(position)).getWeather());
-//                intent.putExtra("Content",((ListViewItem)adapter.getItem(position)).getContent());
+
                 cursor.close();
                 db.close();
                 startActivity(intent);
