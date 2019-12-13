@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:orientation="vertical">
+
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/radioGroup">
+
+        <RadioButton
+            android:id="@+id/itemRed"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="빨강" />
+
+        <RadioButton
+            android:id="@+id/itemBlue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="파랑" />
+
+        <RadioButton
+            android:id="@+id/itemGreen"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="초록" />
+
+    </RadioGroup>
+
+</LinearLayout>

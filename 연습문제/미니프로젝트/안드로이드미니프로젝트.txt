@@ -1,0 +1,16 @@
+*미니프로젝트. 12.20까지 제출해주세요.
+
+My Diary
+
+1.Main화면 intro
+
+2.Second화면 목록
+
+3.Third화면 상세보기
+
+4.Forth화면 수정화면
+
+5.Fifth화면 글쓰기
+=>날짜는 DatePicker사용.
+
+6.수정,삭제시 dialog로 confirm받습니다.
