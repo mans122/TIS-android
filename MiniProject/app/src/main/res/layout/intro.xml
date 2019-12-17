@@ -8,10 +8,19 @@
     android:orientation="vertical"
     tools:context=".intro">
 
-    <Button
-        android:id="@+id/btnStart"
+    <TextView
+        android:id="@+id/textView7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="시작하기" />
+        android:text="Simple Diary"
+        android:textColor="#D64B1F"
+        android:textSize="45dp" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="created by J.H.B"
+        android:textSize="18sp" />
 
 </LinearLayout>

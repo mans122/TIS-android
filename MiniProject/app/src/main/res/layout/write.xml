@@ -51,19 +51,19 @@
             android:inputType="textPersonName" />
 
         <TextView
-            android:id="@+id/dateView"
+            android:id="@+id/viewDate"
             android:layout_width="100dp"
             android:layout_height="match_parent"
             android:clickable="true"
             android:gravity="center"
             android:text="날짜 선택" />
 
-        <EditText
-            android:id="@+id/edtWeather"
+        <TextView
+            android:id="@+id/textWeather"
             android:layout_width="70dp"
             android:layout_height="match_parent"
             android:ems="10"
-            android:inputType="textPersonName" />
+            android:text=""/>
 
     </LinearLayout>
 

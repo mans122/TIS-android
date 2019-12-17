@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/sunny"
+        android:title="맑음"/>
+    <item
+        android:id="@+id/rain"
+        android:title="비"/>
+    <item
+        android:id="@+id/cloud"
+        android:title="구름"/>
+    <item
+        android:id="@+id/storm"
+        android:title="번개"/>
+    <item
+        android:id="@+id/snow"
+        android:title="눈"/>
+</menu>

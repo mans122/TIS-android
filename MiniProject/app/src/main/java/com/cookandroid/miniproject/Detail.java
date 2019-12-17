@@ -1,7 +1,9 @@
 package com.cookandroid.miniproject;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -13,36 +15,65 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class Detail extends AppCompatActivity {
-    EditText textTitle,textWeather,textContent;
-    TextView textDate;
-    Button btnList,btnUpdate;
+    TextView textTitle,textDate,textNum,textWeather,textContent;
+    Button btnList,btnUpdate,btnDelete;
     CalendarView cv = null;
+    String weather;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.detail);
         Intent intent = getIntent();
-        textTitle = (EditText)findViewById(R.id.edtTitle);
-        textDate = (TextView) findViewById(R.id.dateView);
-        textWeather = (EditText)findViewById(R.id.edtWeather);
-        textContent = (EditText)findViewById(R.id.edtContent);
+        textNum=(TextView)findViewById(R.id.textNum);
+        textTitle = (TextView)findViewById(R.id.textTitle);
+        textDate = (TextView) findViewById(R.id.viewDate);
+        textWeather = (TextView)findViewById(R.id.textWeather);
+        textContent = (TextView) findViewById(R.id.textContent);
         btnUpdate =(Button)findViewById(R.id.btnUpdate);
+        btnDelete =(Button)findViewById(R.id.btnDelete);
         btnList=(Button)findViewById(R.id.btnList);
         cv=(CalendarView)findViewById(R.id.calendarView);
         cv.setVisibility(View.GONE);
+
+       textNum.setText(String.valueOf(intent.getIntExtra("Num",0)));
         textTitle.setText(intent.getStringExtra("Title"));
         textDate.setText(intent.getStringExtra("Date"));
-        textWeather.setText(intent.getStringExtra("Weather"));
+        weather = intent.getStringExtra("Weather");
         textContent.setText(intent.getStringExtra("Content"));
 
-        textTitle.setFocusable(false);
-        textTitle.setClickable(false);
-        textDate.setFocusable(false);
-        textDate.setClickable(false);
-        textWeather.setFocusable(false);
-        textWeather.setClickable(false);
-        textContent.setFocusable(false);
-        textContent.setClickable(false);
+        if(weather.equals("")){
+            ;
+        }else {
+            switch (weather) {
+                case "sunny":
+                    textWeather.setCompoundDrawablesWithIntrinsicBounds(R.drawable.sunny, 0, 0, 0);
+                    textWeather.setCompoundDrawablePadding(10);
+                    weather = "sunny";
+                    break;
+                case "cloud":
+                    textWeather.setCompoundDrawablesWithIntrinsicBounds(R.drawable.cloud, 0, 0, 0);
+                    textWeather.setCompoundDrawablePadding(10);
+                    weather = "cloud";
+                    break;
+                case "storm":
+                    textWeather.setCompoundDrawablesWithIntrinsicBounds(R.drawable.strom, 0, 0, 0);
+                    textWeather.setCompoundDrawablePadding(10);
+                    weather = "storm";
+                    break;
+                case "rain":
+                    textWeather.setCompoundDrawablesWithIntrinsicBounds(R.drawable.rain, 0, 0, 0);
+                    textWeather.setCompoundDrawablePadding(10);
+                    weather = "rain";
+                    break;
+                case "snow":
+                    textWeather.setCompoundDrawablesWithIntrinsicBounds(R.drawable.snow, 0, 0, 0);
+                    textWeather.setCompoundDrawablePadding(10);
+                    weather = "snow";
+                    break;
+                default:
+                    break;
+            }
+        }
 
         btnList.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -55,28 +86,38 @@ public class Detail extends AppCompatActivity {
         btnUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(btnUpdate.getText().equals("수정")){
-                    Toast.makeText(getApplicationContext(),"수정",Toast.LENGTH_SHORT).show();
-                    textTitle.setFocusable(true);
-                    textTitle.setClickable(true);
-                    textDate.setFocusable(true);
-                    textDate.setClickable(true);
-                    textWeather.setFocusable(true);
-                    textWeather.setClickable(true);
-                    textContent.setFocusable(true);
-                    textContent.setClickable(true);
-                    btnUpdate.setText("등록");
-                }else{
-                    Toast.makeText(getApplicationContext(),"등록",Toast.LENGTH_SHORT).show();
-                    btnUpdate.setText("수정");
-                }
+                Intent intent = new Intent(getApplicationContext(),UpdateActivity.class);
+                intent.putExtra("Num",textNum.getText().toString());
+                intent.putExtra("Title",textTitle.getText().toString());
+                intent.putExtra("Date",textDate.getText().toString());
+                intent.putExtra("Weather",weather);
+                intent.putExtra("Content",textContent.getText().toString());
+                startActivity(intent);
 
-//                    DBManager dbManager = DBManager.getInstance(getApplicationContext());
-//                    SQLiteDatabase db= dbManager.getWritableDatabase();
-//                    db.execSQL("update Diary set Date='"+textDate.getText().toString()+"', Content='"+textContent.getText().toString()+"' where Title='"+textTitle.getText().toString()+"'");
-//                    db.close();
+            }
+        });
 
-
+        btnDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlertDialog.Builder dig=new AlertDialog.Builder(Detail.this);
+                dig.setTitle("삭제");
+                dig.setMessage("삭제하시겠습니까?");
+                dig.setPositiveButton("아니오",null);
+                dig.setNegativeButton("예", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        DBManager dbManager = DBManager.getInstance(getApplicationContext());
+                        SQLiteDatabase db= dbManager.getWritableDatabase();
+                        db.execSQL("delete from Diary where Num='"+Integer.parseInt(textNum.getText().toString())+"'");
+                        db.close();
+                        Intent intent = new Intent(getApplicationContext(),index.class);
+                        startActivity(intent);
+                        finish();
+                        Toast.makeText(getApplicationContext(),"삭제되었습니다.",Toast.LENGTH_SHORT).show();
+                    }
+                });
+                dig.show();
             }
         });
     }

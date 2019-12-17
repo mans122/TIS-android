@@ -1,0 +1,4 @@
+1. 안드로이드 게시판 상세보기 구현하기
+
+1) BoardView.jsp를 먼저 구현
+2) ThirdActiviy 구현

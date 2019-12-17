@@ -31,12 +31,14 @@ public class ListViewAdapter extends BaseAdapter {
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = inflater.inflate(R.layout.listview_item, parent, false);
         }
+        TextView textViewNum = (TextView)convertView.findViewById(R.id.viewNum);
         TextView textViewTitle = (TextView) convertView.findViewById(R.id.textTitle) ;
-        TextView textViewDate = (TextView) convertView.findViewById(R.id.textDate) ;
+        TextView textViewDate = (TextView) convertView.findViewById(R.id.viewDate) ;
 
         // Data Set(listViewItemList)에서 position에 위치한 데이터 참조 획득
         ListViewItem listViewItem = listViewItemArrayList.get(position);
         // 아이템 내 각 위젯에 데이터 반영
+        textViewNum.setText(listViewItem.getNum().toString());
         textViewTitle.setText(listViewItem.getTitle());
         textViewDate.setText(listViewItem.getDate());
         return convertView;
@@ -45,9 +47,10 @@ public class ListViewAdapter extends BaseAdapter {
         listViewItemArrayList.clear();
     }
     //Item 추가
-    public void addItem(String Title, String Date, String Weather, String Content){
+    public void addItem(Integer Num,String Title, String Date, String Weather, String Content){
         ListViewItem item = new ListViewItem();
         Log.d("title ",Title);
+        item.setNum(Num);
         item.setContent(Content);
         item.setWeather(Weather);
         item.setTitle(Title);

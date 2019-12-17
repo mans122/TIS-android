@@ -33,9 +33,9 @@ public class index extends AppCompatActivity {
         adapter = new ListViewAdapter();
         listView.setAdapter(adapter);
 
-        cursor = db.rawQuery("select * from Diary;", null);
+        cursor = db.rawQuery("select * from Diary order by Num desc;", null);
         while (cursor.moveToNext()) {
-            adapter.addItem(cursor.getString(0), cursor.getString(1), cursor.getString(2), cursor.getString(3));
+            adapter.addItem(cursor.getInt(0),cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getString(4));
         }
         adapter.notifyDataSetChanged();
         cursor.close();
@@ -49,10 +49,11 @@ public class index extends AppCompatActivity {
                 cursor = db.rawQuery("select * from Diary where Title='"+((ListViewItem)adapter.getItem(position)).getTitle()+"'",null);
                 Intent intent = new Intent(getApplicationContext(),Detail.class);
                 cursor.moveToNext();
-                intent.putExtra("Title",cursor.getString(0));
-                intent.putExtra("Date",cursor.getString(1));
-                intent.putExtra("Weather",cursor.getString(2));
-                intent.putExtra("Content",cursor.getString(3));
+                intent.putExtra("Num",cursor.getInt(0));
+                intent.putExtra("Title",cursor.getString(1));
+                intent.putExtra("Date",cursor.getString(2));
+                intent.putExtra("Weather",cursor.getString(3));
+                intent.putExtra("Content",cursor.getString(4));
 
                 cursor.close();
                 db.close();

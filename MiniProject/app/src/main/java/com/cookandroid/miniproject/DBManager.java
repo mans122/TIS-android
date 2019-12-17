@@ -30,7 +30,7 @@ public class DBManager extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         try{
-            db.execSQL("create table Diary(Title char(30) primary key, Date char(10), Weather char(10), Content char(2000))");
+            db.execSQL("create table Diary(Num INTEGER PRIMARY KEY AUTOINCREMENT,Title char(30) , Date char(10), Weather char(10), Content char(2000))");
         }catch(Exception e){
             e.printStackTrace();
         }
