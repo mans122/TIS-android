@@ -15,6 +15,7 @@ import android.widget.TextView;
 
 public class index extends AppCompatActivity {
     Button btnWrite=null;
+    Button btnList=null;
     ListView listView = null;
     DBManager dbManager = null;
     SQLiteDatabase db=null;
@@ -68,6 +69,17 @@ public class index extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(),WriteActivity.class);
                 db.close();
                 startActivity(intent);
+                finish();
+            }
+        });
+
+        btnList=(Button)findViewById(R.id.btnList);
+        btnList.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(),IDListActivity.class);
+                startActivity(intent);
+                finish();
             }
         });
     }

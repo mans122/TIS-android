@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="20dp"
-    tools:context=".index">
+    tools:context=".IDListActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -21,26 +21,26 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="글 목록"
-            android:textColor="#2390C0"
+            android:text="ID 목록"
+            android:textColor="#22A365"
             android:textSize="30sp" />
 
         <Button
-            android:id="@+id/btnWrite"
+            android:id="@+id/btnAdd"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="글쓰기" />
+            android:text="입력" />
 
         <Button
-            android:interpolator="@android:anim/accelerate_interpolator"
-            android:duration="2000"
-            android:fromAlpha="0.0"
-            android:toAlpha="1.0"
             android:id="@+id/btnList"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="ID목록" />
+            android:duration="2000"
+            android:fromAlpha="0.0"
+            android:interpolator="@android:anim/accelerate_interpolator"
+            android:text="글 목록"
+            android:toAlpha="1.0" />
 
     </LinearLayout>
 
@@ -55,11 +55,11 @@
             android:id="@+id/textView5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_weight="2"
             android:gravity="center"
             android:paddingTop="5dp"
             android:paddingBottom="5dp"
-            android:text="글 번호"
+            android:text="사이트"
             android:textColor="#FC070000"
             android:textSize="18sp" />
 
@@ -67,11 +67,11 @@
             android:id="@+id/textView4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_weight="3"
             android:gravity="center"
             android:paddingTop="5dp"
             android:paddingBottom="5dp"
-            android:text="제목"
+            android:text="ID"
             android:textColor="#FC070000"
             android:textSize="18sp" />
 
@@ -83,7 +83,7 @@
             android:gravity="center"
             android:paddingTop="5dp"
             android:paddingBottom="5dp"
-            android:text="작성일"
+            android:text="Comment"
             android:textColor="#FC070000"
             android:textSize="18sp" />
     </LinearLayout>

@@ -26,7 +26,7 @@ public class Detail extends AppCompatActivity {
         Intent intent = getIntent();
         textNum=(TextView)findViewById(R.id.textNum);
         textTitle = (TextView)findViewById(R.id.textTitle);
-        textDate = (TextView) findViewById(R.id.viewDate);
+        textDate = (TextView) findViewById(R.id.textDate);
         textWeather = (TextView)findViewById(R.id.textWeather);
         textContent = (TextView) findViewById(R.id.textContent);
         btnUpdate =(Button)findViewById(R.id.btnUpdate);
@@ -46,27 +46,27 @@ public class Detail extends AppCompatActivity {
         }else {
             switch (weather) {
                 case "sunny":
-                    textWeather.setCompoundDrawablesWithIntrinsicBounds(R.drawable.sunny, 0, 0, 0);
+                    textWeather.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.sunny, 0);
                     textWeather.setCompoundDrawablePadding(10);
                     weather = "sunny";
                     break;
                 case "cloud":
-                    textWeather.setCompoundDrawablesWithIntrinsicBounds(R.drawable.cloud, 0, 0, 0);
+                    textWeather.setCompoundDrawablesWithIntrinsicBounds(0,0,R.drawable.cloud, 0);
                     textWeather.setCompoundDrawablePadding(10);
                     weather = "cloud";
                     break;
                 case "storm":
-                    textWeather.setCompoundDrawablesWithIntrinsicBounds(R.drawable.strom, 0, 0, 0);
+                    textWeather.setCompoundDrawablesWithIntrinsicBounds(0,0,R.drawable.strom,0);
                     textWeather.setCompoundDrawablePadding(10);
                     weather = "storm";
                     break;
                 case "rain":
-                    textWeather.setCompoundDrawablesWithIntrinsicBounds(R.drawable.rain, 0, 0, 0);
+                    textWeather.setCompoundDrawablesWithIntrinsicBounds( 0, 0,R.drawable.rain, 0);
                     textWeather.setCompoundDrawablePadding(10);
                     weather = "rain";
                     break;
                 case "snow":
-                    textWeather.setCompoundDrawablesWithIntrinsicBounds(R.drawable.snow, 0, 0, 0);
+                    textWeather.setCompoundDrawablesWithIntrinsicBounds( 0, 0,R.drawable.snow, 0);
                     textWeather.setCompoundDrawablePadding(10);
                     weather = "snow";
                     break;

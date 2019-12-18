@@ -20,7 +20,7 @@
         android:id="@+id/textView9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="created by J.H.B"
+        android:text="Made By 정한별"
         android:textSize="18sp" />
 
 </LinearLayout>

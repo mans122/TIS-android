@@ -58,26 +58,28 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:ems="10"
-            android:gravity="center"
+            android:gravity="left|center_vertical"
 
             android:textColor="#3DC2D1"
             android:textSize="24sp" />
 
         <TextView
-            android:id="@+id/viewDate"
+            android:id="@+id/textDate"
             android:layout_width="100dp"
             android:layout_height="match_parent"
             android:background="@drawable/layout2"
             android:clickable="false"
             android:gravity="center"
-            android:text="날짜 선택" />
+            android:hint="날짜" />
 
         <TextView
             android:id="@+id/textWeather"
             android:layout_width="70dp"
             android:layout_height="match_parent"
+            android:layout_gravity="center"
             android:ems="10"
             android:gravity="center"
+            android:hint="날씨"
             android:paddingLeft="10dp" />
 
     </LinearLayout>
