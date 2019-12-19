@@ -72,6 +72,7 @@ public class WriteActivity extends AppCompatActivity {
                 db.execSQL("insert into Diary(title,date,weather,content) values('"+title+"','"+date+"','"+weather+"','"+content+"')");
                 Intent intent = new Intent(getApplicationContext(),index.class);
                 startActivity(intent);
+                finish();
             }
         });
 

@@ -16,15 +16,26 @@ public class intro extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.intro);
 
+//        Handler handler = new Handler(){
+//            @Override
+//            public void handleMessage(@NonNull Message msg) {
+//                super.handleMessage(msg);
+//                Intent intent = new Intent(getApplicationContext(),index.class);
+//                startActivity(intent);
+//                finish();
+//            }
+//        };
+
         Handler handler = new Handler(){
             @Override
             public void handleMessage(@NonNull Message msg) {
                 super.handleMessage(msg);
-                Intent intent = new Intent(getApplicationContext(),index.class);
+                Intent intent = new Intent(getApplicationContext(),FingerPrintActivity.class);
                 startActivity(intent);
                 finish();
             }
         };
+
         //핸들러 지연시간 3000 - 3초
         handler.sendEmptyMessageDelayed(0,2200);
     }

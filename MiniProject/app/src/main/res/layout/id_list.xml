@@ -38,7 +38,6 @@
             android:layout_height="wrap_content"
             android:duration="2000"
             android:fromAlpha="0.0"
-            android:interpolator="@android:anim/accelerate_interpolator"
             android:text="글 목록"
             android:toAlpha="1.0" />
 

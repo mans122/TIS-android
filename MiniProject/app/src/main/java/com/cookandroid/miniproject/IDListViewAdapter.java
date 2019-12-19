@@ -1,7 +1,9 @@
 package com.cookandroid.miniproject;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.util.Log;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -39,6 +41,8 @@ public class IDListViewAdapter extends BaseAdapter {
         IDListViewItem listViewItem = listViewItemArrayList.get(position);
         // 아이템 내 각 위젯에 데이터 반영
         textSite.setText(listViewItem.getSite());
+        textSite.setTextSize(20);
+        textSite.setTextColor(Color.rgb(200,200,200));
         textId.setText(listViewItem.getId());
         textComment.setText(listViewItem.getComment());
         return convertView;

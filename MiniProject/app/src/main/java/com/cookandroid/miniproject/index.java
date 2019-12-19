@@ -12,6 +12,7 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class index extends AppCompatActivity {
     Button btnWrite=null;
@@ -21,13 +22,21 @@ public class index extends AppCompatActivity {
     SQLiteDatabase db=null;
     ListViewAdapter adapter;
     Cursor cursor = null;
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        View view = new View(getApplicationContext());
+        view.invalidate();
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.index);
         setTitle("다이어리");
 
-        final DBManager dbManager = DBManager.getInstance(getApplicationContext());
+        dbManager = DBManager.getInstance(getApplicationContext());
         db= dbManager.getReadableDatabase();
 
         listView = (ListView)findViewById(R.id.listView);
@@ -46,7 +55,6 @@ public class index extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 db = dbManager.getReadableDatabase();
-                Log.d("title",((ListViewItem)adapter.getItem(position)).getTitle());
                 cursor = db.rawQuery("select * from Diary where Title='"+((ListViewItem)adapter.getItem(position)).getTitle()+"'",null);
                 Intent intent = new Intent(getApplicationContext(),Detail.class);
                 cursor.moveToNext();
@@ -55,11 +63,8 @@ public class index extends AppCompatActivity {
                 intent.putExtra("Date",cursor.getString(2));
                 intent.putExtra("Weather",cursor.getString(3));
                 intent.putExtra("Content",cursor.getString(4));
-
                 cursor.close();
-                db.close();
                 startActivity(intent);
-
             }
         });
         btnWrite = (Button)findViewById(R.id.btnWrite);
@@ -67,9 +72,7 @@ public class index extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(),WriteActivity.class);
-                db.close();
                 startActivity(intent);
-                finish();
             }
         });
 
@@ -79,7 +82,6 @@ public class index extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(),IDListActivity.class);
                 startActivity(intent);
-                finish();
             }
         });
     }
