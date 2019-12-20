@@ -74,6 +74,9 @@ public class FingerPrintActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(),"지문사용을 허용해 주세요.",Toast.LENGTH_SHORT).show();
                 /*잠금화면 상태를 체크한다.*/
             } else if(!keyguardManager.isKeyguardSecure()){
+                Intent intent = new Intent(getApplicationContext(),index.class);
+                startActivity(intent);
+                finish();
                 Toast.makeText(getApplicationContext(),"잠금화면을 설정해 주세요.",Toast.LENGTH_SHORT).show();
             } else if(!fingerprintManager.hasEnrolledFingerprints()){
                 Toast.makeText(getApplicationContext(),"등록된 지문이 없습니다.",Toast.LENGTH_SHORT).show();

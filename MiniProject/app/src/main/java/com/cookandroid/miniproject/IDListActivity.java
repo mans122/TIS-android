@@ -19,6 +19,7 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class IDListActivity extends AppCompatActivity {
@@ -69,6 +70,7 @@ public class IDListActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                adapter.showDetail(position);
                 dialogView = (View)View.inflate(IDListActivity.this,R.layout.id_add_dialog,null);
                 dig = new AlertDialog.Builder(IDListActivity.this);
                 dig.setTitle("상세 보기");
@@ -80,6 +82,7 @@ public class IDListActivity extends AppCompatActivity {
                 EditText vid=(EditText)dialogView.findViewById(R.id.editId);
                 EditText vpwd=(EditText)dialogView.findViewById(R.id.editPwd);
                 EditText vcomment=(EditText)dialogView.findViewById(R.id.editComment);
+
                 dbManager = DBManager2.getInstance(getApplicationContext());
                 db= dbManager.getReadableDatabase();
                 cursor = db.rawQuery("select * from Idlist where Site='"+((IDListViewItem)adapter.getItem(position)).getSite()+"';", null);

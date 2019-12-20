@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -25,6 +26,10 @@ public class IDListViewAdapter extends BaseAdapter {
         return 0;
     }
 
+    public void showDetail(int position){
+//        listViewItemArrayList.get(position)
+    }
+
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         final int pos = position;
@@ -37,6 +42,12 @@ public class IDListViewAdapter extends BaseAdapter {
         TextView textId = (TextView) convertView.findViewById(R.id.textId) ;
         TextView textComment = (TextView) convertView.findViewById(R.id.textComment) ;
 
+        TextView showView1 =(TextView)convertView.findViewById(R.id.showView1);
+        TextView showView2 =(TextView)convertView.findViewById(R.id.showView2);
+        TextView showView3 =(TextView)convertView.findViewById(R.id.showView3);
+        TextView showView4 =(TextView)convertView.findViewById(R.id.showView4);
+        LinearLayout hideView = (LinearLayout) convertView.findViewById(R.id.hideDetail);
+
         // Data Set(listViewItemList)에서 position에 위치한 데이터 참조 획득
         IDListViewItem listViewItem = listViewItemArrayList.get(position);
         // 아이템 내 각 위젯에 데이터 반영
@@ -45,6 +56,12 @@ public class IDListViewAdapter extends BaseAdapter {
         textSite.setTextColor(Color.rgb(200,200,200));
         textId.setText(listViewItem.getId());
         textComment.setText(listViewItem.getComment());
+
+        showView1.setText(listViewItem.getSite());
+        showView2.setText(listViewItem.getId());
+        showView3.setText(listViewItem.getPwd());
+        showView4.setText(listViewItem.getComment());
+
         return convertView;
     }
     public  void clearView(){
